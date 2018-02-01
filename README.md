@@ -1,2 +1,1 @@
-# Radix-java
-Metodo para RADIX en java, con listas ligadas simples y dobles
+#Metodo de ordenamiento en RADIX
