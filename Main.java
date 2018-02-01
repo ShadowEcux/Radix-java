@@ -3,12 +3,10 @@ import java.util.Scanner;
 public class Main {
     static int maxi;
     static int aux;
-    static int t;
 
-    public static void insertar(Lista lista) {
-        //12 12 12 12 12 12 12 12 12 12 12 12 21 0
+    private static void insertar(Lista lista) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("dame los numeros que desea ordenar:");
+        System.out.println("Dame los numeros que desea ordenar:");
         String rejilla = sc.nextLine();
         String[] numero = rejilla.split(" ");
         for (String nm : numero) {
@@ -20,24 +18,40 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         Lista lista = new Lista();
-        for (int i = 0; i <= 9; i++) {
-            lista.agregarAlFinal(i);
-        }
+        inciar(lista);
         Lista numero = new Lista();
         insertar(numero);
+        System.out.println("\nLista ligada simple");
+        numero.imprimir();
         for (int j = 1; j <= maxi; j++) {
             for (int i = 0; i < numero.getTamanio(); i++) {
                 String num = String.valueOf(numero.getValor(i));
                 int a = getdifit(Integer.parseInt(num), j);
                 lista.insrtarPorPosicion(a, Integer.parseInt(num));
             }
+            System.out.println("\nLista ligada doble");
+            lista.listar();
+
+            numero = lista.transfier();
+
+            System.out.println("\nLista ligada simple");
+            numero.imprimir();
+
+            lista.eliminar();
+            System.out.println("\nLista vacia");
+            System.out.println(lista.esVacia());
+            inciar(lista);
+
         }
-        System.out.println("<<-- Lista -->>");
-        lista.listar();
     }
 
+    private static void inciar(Lista lista){
+        for (int i = 0; i <= 9; i++) {
+            lista.agregarAlFinal(i);
+        }
+    }
 
-    static int getdifit(int number, int pos){
+    private static int getdifit(int number, int pos){
         int i=1; int x;
         while (number > 0) {
             x = number % 10;
@@ -47,5 +61,4 @@ public class Main {
         }
         return 0;
     }
-
 }

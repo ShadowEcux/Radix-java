@@ -1,12 +1,10 @@
 public class Nodo {
-    // Variable en la cual se va a guardar el valor.
     private int valor;
-    // Variable para enlazar los nodos.
     private Nodo Apabajo, Apderecha;
     /**
      * Constructor que inicializamos el valor de las variables.
      */
-    public void Nodo(){
+    Nodo(){
         this.valor = 0;
         this.Apabajo = null;
         this.Apderecha = null;
